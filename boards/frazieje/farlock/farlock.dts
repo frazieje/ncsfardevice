@@ -5,11 +5,11 @@
 
 /dts-v1/;
 #include <nordic/nrf52840_qiaa.dtsi>
-#include "custom_plank-pinctrl.dtsi"
+#include "farlock-pinctrl.dtsi"
 
 / {
-	model = "Custom Plank Board";
-	compatible = "vendor,custom-plank";
+	model = "FARLock Board";
+	compatible = "frazieje,farlock";
 
 	chosen {
 		zephyr,console = &uart0;

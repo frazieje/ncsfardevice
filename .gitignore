@@ -2,6 +2,7 @@
 .vscode
 *.swp
 *~
+.idea
 
 # python
 .venv
@@ -10,6 +11,7 @@
 /app/build*
 /build*
 /twister-out*
+cmake-build-debug/
 
 __pycache__/
 

@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 board:
-  name: custom_plank
-  vendor: vendor
+  name: farlock
+  vendor: frazieje
   socs:
     - name: nrf52840
