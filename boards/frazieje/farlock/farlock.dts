@@ -12,8 +12,9 @@
 	compatible = "frazieje,farlock";
 
 	chosen {
-		zephyr,console = &uart0;
-		zephyr,shell-uart = &uart0;
+		zephyr,console = &cdc_acm_uart0;
+		zephyr,shell-uart = &cdc_acm_uart0;
+		zephyr,uart-mcumgr = &uart0;
 		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
 	};
@@ -59,25 +60,29 @@
 
 	example_sensor: example-sensor {
 		compatible = "zephyr,example-sensor";
-		input-gpios = <&gpio0 11 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+		input-gpios = <&gpio0 13 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 	};
 
 	blink_led: blink-led {
 		compatible = "blink-gpio-led";
-		led-gpios = <&gpio0 13 GPIO_ACTIVE_LOW>;
+		led-gpios = <&gpio0 29 GPIO_ACTIVE_HIGH>;
 		blink-period-ms = <1000>;
 	};
-};
-
-&uicr {
-	gpio-as-nreset;
 };
 
 &gpiote {
 	status = "okay";
 };
 
+&uicr {
+	gpio-as-nreset;
+};
+
 &gpio0 {
+	status = "okay";
+};
+
+&gpio1 {
 	status = "okay";
 };
 
@@ -89,4 +94,16 @@
 	pinctrl-0 = <&uart0_default>;
 	pinctrl-1 = <&uart0_sleep>;
 	pinctrl-names = "default", "sleep";
+};
+
+zephyr_udc0: &usbd {
+	compatible = "nordic,nrf-usbd";
+	status = "okay";
+};
+
+&zephyr_udc0 {
+	cdc_acm_uart0: cdc_acm_uart0 {
+		compatible = "zephyr,cdc-acm-uart";
+		status = "okay";
+	};
 };
