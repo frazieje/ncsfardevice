@@ -62,6 +62,12 @@
 		};
 	};
 
+	far_nfc: far-nfc {
+		compatible = "far-nfc-t4t";
+		antenna0 = <&gpio0 9>;
+		antenna1 = <&gpio0 10>;
+	};
+
 	example_sensor: example-sensor {
 		compatible = "zephyr,example-sensor";
 		input-gpios = <&gpio0 13 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;

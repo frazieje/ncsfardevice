@@ -151,19 +151,19 @@ int main(void)
         return 0;
     }
 
-//    printk("Starting NFC Writable NDEF Message example\n");
-//    while (true) {
-//        if (atomic_cas(&op_flags, FLASH_BUF_PREP_FINISHED,
-//                       FLASH_WRITE_STARTED)) {
-//            if (ndef_file_update(flash_buf, flash_buf_len) < 0) {
-//                printk("Cannot flash NDEF message!\n");
-//            } else {
-//                printk("NDEF message successfully flashed.\n");
-//            }
-//            atomic_set(&op_flags, FLASH_WRITE_FINISHED);
-//        }
-//        k_cpu_atomic_idle(irq_lock());
-//    }
+    printk("Starting NFC Writable NDEF Message example\n");
+    while (true) {
+        if (atomic_cas(&op_flags, FLASH_BUF_PREP_FINISHED,
+                       FLASH_WRITE_STARTED)) {
+            if (ndef_file_update(flash_buf, flash_buf_len) < 0) {
+                printk("Cannot flash NDEF message!\n");
+            } else {
+                printk("NDEF message successfully flashed.\n");
+            }
+            atomic_set(&op_flags, FLASH_WRITE_FINISHED);
+        }
+        k_sleep(K_MSEC(100));
+    }
 //	while (1) {
 //		ret = sensor_sample_fetch(sensor);
 //		if (ret < 0) {

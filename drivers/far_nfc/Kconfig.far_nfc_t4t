@@ -1,0 +1,7 @@
+config FAR_NFC_T4T
+	bool "T4T read/write FAR NFC driver"
+	default y
+	depends on DT_HAS_FAR_NFC_T4T_ENABLED
+	help
+	  Enable this option to use the GPIO-controlled LED blink driver. This
+	  demonstrates how to implement a driver for a custom driver class.
