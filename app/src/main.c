@@ -80,6 +80,7 @@ static void nfc_callback(void *context,
 
         case NFC_T4T_EVENT_NDEF_UPDATED:
             if (data_length > 0) {
+                printk("NFC_T4T_EVENT_NDEF_UPDATED\n");
 //                dk_set_led_on(NFC_WRITE_LED);
                 flash_buffer_prepare(data_length);
             }
