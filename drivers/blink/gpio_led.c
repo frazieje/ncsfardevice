@@ -40,8 +40,6 @@ static void blink_gpio_led_on_timer_expire(struct k_timer *timer)
 static int blink_gpio_led_set_period_ms(const struct device *dev,
 					unsigned int period_ms)
 {
-	const struct blink_gpio_led_config *config = dev->config;
-	struct blink_gpio_led_data *data = dev->data;
 
 	if (period_ms == 0) {
 		k_timer_stop(&data->timer);
