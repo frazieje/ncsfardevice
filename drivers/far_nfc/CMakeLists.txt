@@ -1,2 +1,0 @@
-zephyr_library()
-zephyr_library_sources_ifdef(CONFIG_FAR_NFC_T4T far_nfc_t4t.c)
