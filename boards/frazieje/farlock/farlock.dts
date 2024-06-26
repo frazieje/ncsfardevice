@@ -63,6 +63,7 @@
 	};
 
 	nfc: nfc {
+		status = "okay";
 		compatible = "nfc-rw";
 	};
 };
