@@ -61,6 +61,10 @@
 			zephyr,code = <INPUT_KEY_2>;
 		};
 	};
+
+	nfc: nfc {
+		compatible = "nfc-rw";
+	};
 };
 
 &gpiote {
