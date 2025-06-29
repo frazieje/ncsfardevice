@@ -4,6 +4,10 @@
 
 #include <nfc/ndef/msg.h>
 #include <nfc/t4t/ndef_file.h>
+#include <nfc/ndef/uri_msg.h>
+
+static const uint8_t m_url[] = /**< Default NDEF message: URL "nordicsemi.com". */
+    {'n', 'o', 'r', 'd', 'i', 'c', 's', 'e', 'm', 'i', '.', 'c', 'o', 'm'};
 
 static uint8_t ndef_msg_buf[CONFIG_NDEF_FILE_SIZE]; /**< Buffer for NDEF file. */
 
@@ -37,6 +41,8 @@ int start_nfc_ro(nfc_t4t_callback_t callback) {
 }
 
 int start_nfc_rw(nfc_t4t_callback_t callback) {
+
+    uint32_t size = sizeof(ndef_msg_buf);
 
     int err = ndef_file_default_message(ndef_msg_buf, &size);
     if (err < 0) {

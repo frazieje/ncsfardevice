@@ -13,4 +13,15 @@ toolchain:
   - gnuarmemb
   - xtools
 supported:
+  - adc
+  - ble
+  - counter
   - gpio
+  - i2c
+  - i2s
+  - pwm
+  - spi
+  - usb_cdc
+  - usb_device
+  - watchdog
+  - netif:openthread

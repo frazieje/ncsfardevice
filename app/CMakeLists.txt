@@ -31,11 +31,13 @@ target_include_directories(app PRIVATE
 target_sources(app PRIVATE
 #      src/app_task.cpp
         src/main.cpp
+        src/nfc.c
+        src/usb.c
 )
 
 chip_configure_data_model(app
         INCLUDE_SERVER
         BYPASS_IDL
         GEN_DIR src/zap-generated
-        ZAP_FILE ${CMAKE_CURRENT_SOURCE_DIR}/src/template.zap
+        ZAP_FILE ${CMAKE_CURRENT_SOURCE_DIR}/src/farlock.zap
 )

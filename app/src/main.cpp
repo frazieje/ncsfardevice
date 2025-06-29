@@ -2,6 +2,7 @@
 
 extern "C" {
 #include "nfc.h"
+#include "usb.h"
 }
 
 #define NFC_PATH DT_PATH(nfc)
@@ -49,6 +50,9 @@ static void nfc_callback(void *context,
 int main()
 {
     printk("Started C++ application \n");
+
+    start_usb();
+
 
 #if DT_NODE_EXISTS(NFC_PATH)
     char nfc_type[] = DT_PROP(NFC_PATH, compatible);
